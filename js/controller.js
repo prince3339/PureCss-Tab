@@ -27,7 +27,7 @@
         }
       });
     }else {
-      getTabData("/data-model/tab-data.json", function(data) {
+      getTabData("/pepper/data-model/tab-data.json", function(data) {
         console.log(data);
         data.forEach(function(item, index) {
           if(item.tab_id == 'js-tab-2') {
@@ -50,7 +50,7 @@
         }
       });
     }else {
-      getTabData("/data-model/tab-data.json", function(data) {
+      getTabData("/pepper/data-model/tab-data.json", function(data) {
         console.log(data);
         data.forEach(function(item, index) {
           if(item.tab_id == 'js-tab-3') {
@@ -83,7 +83,7 @@
 
 
   vm.onload = function() {
-    getTabData("/data-model/tab-data.json", function(data) {
+    getTabData("/pepper/data-model/tab-data.json", function(data) {
       console.log(data);
       data.forEach(function(item, index) {
         if(item.tab_id == 'js-tab-1') {
