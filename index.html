@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Pepper Accordion</title>
+      <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+      <link rel="stylesheet" href="css/style.css">
+  </head>
+
+<body>
+    <!-- Tab container start -->
+    <section class="no-js-tab">
+      <h2 class="font-size-fixed-20 margin-0 text-center border-bottom">NO js Tab/Accordion</h2>
+      <div class="pepper-tabs clearfix border-bottom">
+        <div class="pepper-tab">
+          <input class="pepper-tab__radio"
+                 type="radio"
+                 id="tab-1"
+                 name="tab-group-1"
+                 checked>
+          <label class="pepper-tab__label cur-pointer"
+                 for="tab-1">
+                 Option 1
+          </label>
+
+          <div class="pepper-tab__panel">
+            <div class="pepper-tab__content">
+              <h3 class="font-size-fixed-18 margin-bottom-0">Heading 1</h3>
+              <p class="font-size-fixed-14 margin-top-0">
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+              </p>
+          </div>
+        </div>
+
+        <div class="pepper-tab">
+          <input class="pepper-tab__radio"
+                 type="radio"
+                 id="tab-2"
+                 name="tab-group-1">
+          <label class="pepper-tab__label cur-pointer"
+                 for="tab-2">
+                 Option 2
+          </label>
+
+          <div class="pepper-tab__panel">
+            <div class="pepper-tab__content">
+              <h3 class="font-size-fixed-18 margin-bottom-0">Heading 2</h3>
+              <p class="font-size-fixed-14 margin-top-0">
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+              </p>
+          </div>
+        </div>
+
+        <div class="pepper-tab">
+          <input class="pepper-tab__radio"
+                 type="radio"
+                 id="tab-3"
+                 name="tab-group-1">
+          <label class="pepper-tab__label cur-pointer"
+                 for="tab-3">
+                 Option 3
+          </label>
+
+          <div class="pepper-tab__panel">
+            <div class="pepper-tab__content">
+              <h3 class="font-size-fixed-18 margin-bottom-0">Heading 3</h3>
+              <p class="font-size-fixed-14 margin-top-0">
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+              </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="js-tab">
+      <h2 class="font-size-fixed-20 margin-0 text-center border-bottom">JS Tab/Accordion</h2>
+      <div class="pepper-tabs clearfix border-bottom">
+        <div class="pepper-tab">
+          <input class="pepper-tab__radio"
+                 type="radio"
+                 id="js-tab-1"
+                 name="js-tab-group-1"
+                 checked>
+          <label class="pepper-tab__label cur-pointer"
+                 for="js-tab-1">
+                 Option 1
+          </label>
+
+          <div class="pepper-tab__panel">
+            <div id="tab_one_content"
+                 class="pepper-tab__content">
+
+          </div>
+        </div>
+
+        <div class="pepper-tab">
+          <input class="pepper-tab__radio"
+                 type="radio"
+                 id="js-tab-2"
+                 name="js-tab-group-1"
+                 onchange="config.fn.loadSecondTabMethod('js-tab-2')">
+          <label class="pepper-tab__label cur-pointer"
+                 for="js-tab-2">
+                 Option 2
+          </label>
+
+          <div class="pepper-tab__panel">
+            <div id="tab_two_content"
+                 class="pepper-tab__content">
+
+          </div>
+        </div>
+
+        <div class="pepper-tab">
+          <input class="pepper-tab__radio"
+                 type="radio"
+                 id="js-tab-3"
+                 name="js-tab-group-1"
+                 onchange="config.fn.loadThirdTabMethod('js-tab-3')">
+          <label class="pepper-tab__label cur-pointer"
+                 for="js-tab-3">
+                 Option 3
+          </label>
+
+          <div class="pepper-tab__panel">
+            <div id="tab_three_content"
+                 class="pepper-tab__content">
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="js/settings.js"></script>
+    <script src="js/controller.js"></script>
+    <script src="js/viewRenderer.js"></script>
+    <script src="js/viewService.js"></script>
+  </body>
+</html>
