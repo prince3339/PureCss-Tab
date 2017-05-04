@@ -21,32 +21,39 @@
     }
 
     &__label {
-      background: #eee;
-      display: inline-block;
-      font-size: 16px;
-      font-size: 1.6rem;
-      left: 1px;
       margin-left: 2px;
       margin-right: 2px;
-      padding: 10px;
+
+      left: 1px;
       position: relative;
+
+      padding: 10px;
+      background: #eee;
+      display: inline-block;
+
+      font-size: 16px;
+      font-size: 1.6rem;
+
       vertical-align: bottom;
     }
 
     &> [type="radio"] {
-      clip: rect(0 0 0 0);
-      height: 1px;
-      opacity: 0;
       position: fixed;
+
       width: 1px;
+      height: 1px;
+
+      opacity: 0;
       z-index: -1;
+      clip: rect(0 0 0 0);
     }
 
     &__panel {
+      position: relative;
+
       display: inline;
       display: inline-block;
       overflow: hidden;
-      position: relative;
       height: 0;
       width: 0;
     }
@@ -56,12 +63,15 @@
       -moz-box-sizing: border-box;
       box-sizing: border-box;
       display: block;
-      background: white;
+      background: #fff;
+      width: 100%;
+
+
       float: left;
+
       font-size: 16px;
       font-size: 1rem;
       margin-top: -1px;
-      width: 100%;
     }
   }
 
@@ -69,6 +79,7 @@
     background: white;
     border-bottom-width: 0;
     padding-bottom: 11px;
+
     z-index: 1;
 
     @include breakpoint($min: 0px, $max: 767px) {
