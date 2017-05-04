@@ -10,56 +10,56 @@
 ;(function(window){
  'use strict';
   var vm = window;
-
+  var tabData = {};
   config.fn = {
-    loadSecondTabMethod: loadSecondTabMethod,
-    loadThirdTabMethod: loadThirdTabMethod,
+    loadTabMethod: loadTabMethod
   }
 
   //console.log(config);
-  function loadSecondTabMethod(id) {
-    debugger;
-    if(localStorage.tabData) {
-      var localData = JSON.parse(localStorage.getItem('tabData'));
-      localData.forEach(function(item, index) {
-        if(item.tab_id == 'js-tab-2') {
-          config.fn.loadTab(item, 'js-tab-2');
-        }
-      });
-    }else {
-      getTabData("/pepper/data-model/tab-data.json", function(data) {
-        console.log(data);
-        data.forEach(function(item, index) {
-          if(item.tab_id == 'js-tab-2') {
-            config.fn.loadTab(item, 'js-tab-2');
+  function loadTabMethod(id) {
+      switch (id) {
+        case "js-tab-1":
+          if(!tabData[id]) {
+            tabData[id] = {};
+            getTabData("/pepper/data-model/tabone-data.json", function(data) {
+              console.log(data);
+              tabData[id]['status'] = true;
+              tabData[id]['lodedData'] = data;
+              config.fn.loadTab(tabData[id]['lodedData'], 'js-tab-1');
+            });
+          }else {
+            config.fn.loadTab(tabData[id]['lodedData'], 'js-tab-1');
           }
-        });
-        localStorage.setItem('tabData', JSON.stringify(data));
-      });
-    }
-  }
+          break;
+          case "js-tab-2":
+            if(!tabData[id]) {
+              tabData[id] = {};
+              getTabData("/pepper/data-model/tabtwo-data.json", function(data) {
+                console.log(data);
+                tabData[id]['status'] = true;
+                tabData[id]['lodedData'] = data;
+                config.fn.loadTab(tabData[id]['lodedData'], 'js-tab-2');
+              });
+            }else {
+              config.fn.loadTab(tabData[id]['lodedData'], 'js-tab-2');
+            }
+            break;
+          case "js-tab-3":
+            if(!tabData[id]) {
+              tabData[id] = {};
+              getTabData("/pepper/data-model/tabthree-data.json", function(data) {
+                console.log(data);
+                tabData[id]['status'] = true;
+                tabData[id]['lodedData'] = data;
+                config.fn.loadTab(tabData[id]['lodedData'], 'js-tab-3');
+              });
+            }else {
+              config.fn.loadTab(tabData[id]['lodedData'], 'js-tab-3');
+            }
+            break;
+        default:
 
-
-  function loadThirdTabMethod(id) {
-    debugger;
-    if(localStorage.tabData) {
-      var localData = JSON.parse(localStorage.getItem('tabData'));
-      localData.forEach(function(item, index) {
-        if(item.tab_id == 'js-tab-3') {
-          config.fn.loadTab(item, 'js-tab-3');
-        }
-      });
-    }else {
-      getTabData("/pepper/data-model/tab-data.json", function(data) {
-        console.log(data);
-        data.forEach(function(item, index) {
-          if(item.tab_id == 'js-tab-3') {
-            config.fn.loadTab(item, 'js-tab-3');
-          }
-        });
-        localStorage.setItem('tabData', JSON.stringify(data));
-      });
-    }
+      }
   }
 
   function getTabData(url, callback) {
@@ -83,14 +83,7 @@
 
 
   vm.onload = function() {
-    getTabData("/pepper/data-model/tab-data.json", function(data) {
-      console.log(data);
-      data.forEach(function(item, index) {
-        if(item.tab_id == 'js-tab-1') {
-          config.fn.loadTab(item, 'js-tab-1');
-        }
-      })
-    });
+    loadTabMethod("js-tab-1");
   }
 
 })(window)

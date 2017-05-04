@@ -15,6 +15,7 @@
     function renderTab(data, id) {
       switch (id) {
         case "js-tab-1":
+          config.elems.tab_one_content.innerHTML = '';
           var first_heading = document.createElement('h3');
           first_heading.className ="font-size-fixed-18 margin-bottom-0";
           first_heading.innerText = data.tab_heading;
@@ -27,7 +28,6 @@
           config.elems.tab_one_content.appendChild(first_content);
           break;
         case "js-tab-2":
-          debugger;
           config.elems.tab_two_content.innerHTML = '';
           var second_heading = document.createElement('h3');
           second_heading.className ="font-size-fixed-18 margin-bottom-0";

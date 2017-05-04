@@ -82,7 +82,8 @@
                  type="radio"
                  id="js-tab-1"
                  name="js-tab-group-1"
-                 checked>
+                 checked
+                 onchange="config.fn.loadTabMethod('js-tab-1')">
           <label class="pepper-tab__label cur-pointer"
                  for="js-tab-1">
                  Option 1
@@ -100,7 +101,7 @@
                  type="radio"
                  id="js-tab-2"
                  name="js-tab-group-1"
-                 onchange="config.fn.loadSecondTabMethod('js-tab-2')">
+                 onchange="config.fn.loadTabMethod('js-tab-2')">
           <label class="pepper-tab__label cur-pointer"
                  for="js-tab-2">
                  Option 2
@@ -118,7 +119,7 @@
                  type="radio"
                  id="js-tab-3"
                  name="js-tab-group-1"
-                 onchange="config.fn.loadThirdTabMethod('js-tab-3')">
+                 onchange="config.fn.loadTabMethod('js-tab-3')">
           <label class="pepper-tab__label cur-pointer"
                  for="js-tab-3">
                  Option 3
