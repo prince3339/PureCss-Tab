@@ -17,49 +17,26 @@
 
   //console.log(config);
   function loadTabMethod(id) {
-      switch (id) {
-        case "js-tab-1":
-          if(!tabData[id]) {
-            tabData[id] = {};
-            getTabData("/pepper/data-model/tabone-data.json", function(data) {
-              console.log(data);
-              tabData[id]['status'] = true;
-              tabData[id]['lodedData'] = data;
-              config.fn.loadTab(tabData[id]['lodedData'], 'js-tab-1');
-            });
-          }else {
-            config.fn.loadTab(tabData[id]['lodedData'], 'js-tab-1');
-          }
-          break;
-          case "js-tab-2":
-            if(!tabData[id]) {
-              tabData[id] = {};
-              getTabData("/pepper/data-model/tabtwo-data.json", function(data) {
-                console.log(data);
-                tabData[id]['status'] = true;
-                tabData[id]['lodedData'] = data;
-                config.fn.loadTab(tabData[id]['lodedData'], 'js-tab-2');
-              });
-            }else {
-              config.fn.loadTab(tabData[id]['lodedData'], 'js-tab-2');
-            }
-            break;
-          case "js-tab-3":
-            if(!tabData[id]) {
-              tabData[id] = {};
-              getTabData("/pepper/data-model/tabthree-data.json", function(data) {
-                console.log(data);
-                tabData[id]['status'] = true;
-                tabData[id]['lodedData'] = data;
-                config.fn.loadTab(tabData[id]['lodedData'], 'js-tab-3');
-              });
-            }else {
-              config.fn.loadTab(tabData[id]['lodedData'], 'js-tab-3');
-            }
-            break;
-        default:
-
+    if(!tabData[id]) {
+      tabData[id] = {};
+      if(id === "js-tab-1") {
+        var tabDatSource = "/pepper/data-model/tabone-data.json";
       }
+      else if(id === "js-tab-2") {
+        var tabDatSource = "/pepper/data-model/tabtwo-data.json";
+      }
+      else if(id === "js-tab-3") {
+        var tabDatSource = "/pepper/data-model/tabthree-data.json";
+      }
+      getTabData(tabDatSource, function(data) {
+        console.log(data);
+        tabData[id]['status'] = true;
+        tabData[id]['lodedData'] = data;
+        config.fn.loadTab(tabData[id]['lodedData'], id);
+      });
+    }else {
+      config.fn.loadTab(tabData[id]['lodedData'], id);
+    }
   }
 
   function getTabData(url, callback) {
