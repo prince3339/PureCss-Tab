@@ -20,16 +20,16 @@
     if(!tabData[id]) {
       tabData[id] = {};
       if(id === "js-tab-1") {
-        var tabDatSource = "/pepper/data-model/tabone-data.json";
+        var tabDatSource = "/front-end-task/data-model/tabone-data.json";
       }
       else if(id === "js-tab-2") {
-        var tabDatSource = "/pepper/data-model/tabtwo-data.json";
+        var tabDatSource = "/front-end-task/data-model/tabtwo-data.json";
       }
       else if(id === "js-tab-3") {
-        var tabDatSource = "/pepper/data-model/tabthree-data.json";
+        var tabDatSource = "/front-end-task/data-model/tabthree-data.json";
       }
       getTabData(tabDatSource, function(data) {
-        console.log(data);
+        //console.log(data);
         tabData[id]['status'] = true;
         tabData[id]['lodedData'] = data;
         config.fn.loadTab(tabData[id]['lodedData'], id);
@@ -43,11 +43,11 @@
       var xmlhttp = new XMLHttpRequest();
       xmlhttp.onreadystatechange = function() {
           if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-              console.log('responseText:' + xmlhttp.responseText);
+              //console.log('responseText:' + xmlhttp.responseText);
               try {
                   var data = JSON.parse(xmlhttp.responseText);
               } catch(err) {
-                  console.log(err.message + " in " + xmlhttp.responseText);
+                  //console.log(err.message + " in " + xmlhttp.responseText);
                   return;
               }
               callback(data);
